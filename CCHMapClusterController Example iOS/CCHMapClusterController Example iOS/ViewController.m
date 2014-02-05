@@ -16,6 +16,7 @@
 #import "CCHMapClusterController.h"
 #import "CCHMapClusterControllerDelegate.h"
 #import "CCHCenterOfMassMapClusterer.h"
+#import "CCHMoveInOutMapAnimator.h"
 
 @interface ViewController()<DataReaderDelegate, CCHMapClusterControllerDelegate, MKMapViewDelegate>
 
@@ -37,8 +38,12 @@
     }
     
     // Set up map clustering
-    self.mapClusterController = [[CCHMapClusterController alloc] initWithMapView:self.mapView];
+    self.mapClusterController = [[CCHMapClusterController alloc] initWithMapView:self.mapView];    
     self.mapClusterController.delegate = self;
+
+    CCHMoveInOutMapAnimator *animator = [[CCHMoveInOutMapAnimator alloc] init];
+    animator.duration = 0.5f;
+    self.mapClusterController.animator = animator;
     
     // Cell size and margin factor
 //    self.mapClusterController.cellSize = 100;           // [points]
