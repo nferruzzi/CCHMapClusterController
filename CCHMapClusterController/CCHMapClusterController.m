@@ -108,7 +108,7 @@
 - (void)setAnimator:(id<CCHMapAnimator>)animator
 {
     _animator = animator;
-    self.strongAnimator = nil;
+    self.strongAnimator = animator;
 }
 
 - (void)setReuseExistingClusterAnnotations:(BOOL)reuseExistingClusterAnnotations
