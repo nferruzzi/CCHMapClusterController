@@ -49,6 +49,8 @@
 		62D71E11187EB45500E52EE3 /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D71E10187EB45500E52EE3 /* ClusterAnnotationView.m */; };
 		8A3EB24718A1C34800605363 /* MKAnnotation+CCHClusterTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3EB24618A1C34800605363 /* MKAnnotation+CCHClusterTracker.m */; };
 		8A3EB24818A1C34800605363 /* MKAnnotation+CCHClusterTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3EB24618A1C34800605363 /* MKAnnotation+CCHClusterTracker.m */; };
+		8A3EB24B18A1CAF600605363 /* CCHMoveInOutMapAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3EB24A18A1CAF600605363 /* CCHMoveInOutMapAnimator.m */; };
+		8A3EB24C18A1CAF600605363 /* CCHMoveInOutMapAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3EB24A18A1CAF600605363 /* CCHMoveInOutMapAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		62D71E10187EB45500E52EE3 /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
 		8A3EB24518A1C34800605363 /* MKAnnotation+CCHClusterTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotation+CCHClusterTracker.h"; sourceTree = "<group>"; };
 		8A3EB24618A1C34800605363 /* MKAnnotation+CCHClusterTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotation+CCHClusterTracker.m"; sourceTree = "<group>"; };
+		8A3EB24918A1CAF600605363 /* CCHMoveInOutMapAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHMoveInOutMapAnimator.h; sourceTree = "<group>"; };
+		8A3EB24A18A1CAF600605363 /* CCHMoveInOutMapAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHMoveInOutMapAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +295,8 @@
 		62D667C41845F8A40046D5D5 /* CCHMapClusterController */ = {
 			isa = PBXGroup;
 			children = (
+				8A3EB24918A1CAF600605363 /* CCHMoveInOutMapAnimator.h */,
+				8A3EB24A18A1CAF600605363 /* CCHMoveInOutMapAnimator.m */,
 				62D667C51845F8A40046D5D5 /* CCHMapClusterAnnotation.h */,
 				62D667C61845F8A40046D5D5 /* CCHMapClusterAnnotation.m */,
 				62D667C71845F8A40046D5D5 /* CCHMapClusterController.h */,
@@ -422,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62D71E11187EB45500E52EE3 /* ClusterAnnotationView.m in Sources */,
+				8A3EB24B18A1CAF600605363 /* CCHMoveInOutMapAnimator.m in Sources */,
 				48899966185E398700F3D6ED /* CCHMapTreeUtils.m in Sources */,
 				62D667991845E0F20046D5D5 /* ViewController.m in Sources */,
 				4869F19D1853AA6300251ADC /* CCHFadeInOutMapAnimator.m in Sources */,
@@ -444,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D7B0CF185BA3750071636B /* TBQuadTree.m in Sources */,
+				8A3EB24C18A1CAF600605363 /* CCHMoveInOutMapAnimator.m in Sources */,
 				48899957185CE2B000F3D6ED /* QTreeGeometryUtils.m in Sources */,
 				4889995A185D175000F3D6ED /* QCluster.m in Sources */,
 				48899968185F875600F3D6ED /* CCHMapClusterControllerTests.m in Sources */,
