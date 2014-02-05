@@ -34,6 +34,7 @@
 #import "CCHCenterOfMassMapClusterer.h"
 #import "CCHFadeInOutMapAnimator.h"
 #import "CCHMapTree.h"
+#import "MKAnnotation+CCHClusterTracker.h"
 
 #define NODE_CAPACITY 10
 #define WORLD_MIN_LAT -85
@@ -192,12 +193,35 @@
                     annotationForCell.coordinate = [_clusterer mapClusterController:self coordinateForAnnotations:allAnnotationsInCell inMapRect:cellRect];
                     annotationForCell.delegate = _delegate;
                     annotationForCell.annotations = allAnnotationsInCell;
+
+                    // We keep track of the relations of this cluster with a previous one
+                    // by looking in which cluster one annotation was
+                    bool relation = false;
+                    for (NSObject <MKAnnotation> *annotation in allAnnotationsInCell) {
+                        CCHMapClusterAnnotation *old_cluster = [annotation cch_cluster];
+                        if (old_cluster) {
+                            // We know this annotation is moving from one cluster to another
+                            // so we add this information to our new CCHMapClusterAnnotation.
+                            if (!relation) {
+                                // We get the first one, but we should probably look what
+                                // old cluster had more "weight", to investigate.
+                                [annotationForCell cch_setCluster:old_cluster];
+                                relation = true;
+                            }
+                        }
+                        [annotation cch_setCluster:annotationForCell];
+                    }
                 } else {
                     // For existing annotations, this will implicitly update annotation views
                     dispatch_async(dispatch_get_main_queue(), ^{
                         annotationForCell.annotations = allAnnotationsInCell;
                         annotationForCell.title = nil;
                         annotationForCell.subtitle = nil;
+                        
+                        // We keep track of cluster
+                        for (NSObject <MKAnnotation> *annotation in allAnnotationsInCell) {
+                            [annotation cch_setCluster:annotationForCell];
+                        }
                         if ([self.delegate respondsToSelector:@selector(mapClusterController:willReuseMapClusterAnnotation:)]) {
                             [self.delegate mapClusterController:self willReuseMapClusterAnnotation:annotationForCell];
                         }
